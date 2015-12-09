@@ -1,6 +1,7 @@
-enhancedbars <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, yadj=-1.7){
+enhancedbars <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, 
+                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)])){
   
-  plot((1:nrow(meandf)),meandf[,2], ylim=range(resp[!is.na(resp) & is.finite(resp)]), 
+  plot((1:nrow(meandf)),meandf[,2], ylim=ylimit, 
       cex.axis=1.2, cex=1.2, xlim=c(0.5,nrow(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
   
   for(i in 1:nrow(meandf)){
