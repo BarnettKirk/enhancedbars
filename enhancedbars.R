@@ -1,5 +1,5 @@
 enhancedbars <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, 
-                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)])){
+                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), density=NULL, angle=NULL){
   
   plot((1:nrow(meandf)),meandf[,2], ylim=ylimit, 
       cex.axis=1.2, cex=1.2, xlim=c(0.5,nrow(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
@@ -10,7 +10,7 @@ enhancedbars <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylab
   }
   
   for(i in 1:nrow(meandf)){
-    rect(i-0.3,0,i+0.3,meandf[i,sapply(meandf, is.numeric)], col=alpha(colpal[i],alpha=0.2))
+    rect(i-0.3,0,i+0.3,meandf[i,sapply(meandf, is.numeric)], col=alpha(colpal[i],alpha=0.2), density=density, angle=angle)
   }
   
   for(i in 1:nrow(meandf)){
