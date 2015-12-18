@@ -10,7 +10,7 @@ enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(),
   
   for(i in 1:length(meandf)){
     points(jitter(rep(i,nrow(dataframe[treat==levels(treat)[i],]))), 
-           jitter(resp[treat==levels(treat)[i]]), bg=alpha(colpal[i],alpha=alpha), pch=21)
+           jitter(resp[treat==levels(treat)[i]], factor=0.1), bg=alpha(colpal[i],alpha=alpha), pch=21)
   }
   
   for(i in 1:length(meandf)){
@@ -36,7 +36,7 @@ enhancedbarsDen <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), y
   
   for(i in 1:length(meandf)){
     points(jitter(rep(i,nrow(dataframe[treat==levels(treat)[i],]))), 
-           jitter(resp[treat==levels(treat)[i]]), bg=alpha(colpal[i],alpha=alpha), pch=21)
+           jitter(resp[treat==levels(treat)[i]], factor=0.1), bg=alpha(colpal[i],alpha=alpha), pch=21)
   }
   
   for(i in 1:length(meandf)){
