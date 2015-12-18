@@ -5,7 +5,7 @@ enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(),
       cex.axis=1.2, cex=1.2, xlim=c(0.5,length(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
 
   for(i in 1:length(meandf)){
-    rect(i-0.3,0,i+0.3,meandf[i], col=alpha(colpal[i],alpha=0.2), ...)
+    rect(i-0.3,0,i+0.3,meandf[i], col=alpha(colpal[i],alpha=alpha), ...)
   }
   
   for(i in 1:length(meandf)){
