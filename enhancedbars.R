@@ -1,5 +1,5 @@
 enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, 
-                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), ...){
+                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), alpha=0.7,...){
   
   plot((1:length(meandf)),meandf, ylim=ylimit, 
       cex.axis=1.2, cex=1.2, xlim=c(0.5,length(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
@@ -10,7 +10,7 @@ enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(),
   
   for(i in 1:length(meandf)){
     points(jitter(rep(i,nrow(dataframe[treat==levels(treat)[i],]))), 
-           jitter(resp[treat==levels(treat)[i]]), col=alpha(colpal[i],alpha=0.7), pch=19)
+           jitter(resp[treat==levels(treat)[i]]), bg=alpha(colpal[i],alpha=alpha), pch=21)
   }
   
   for(i in 1:length(meandf)){
@@ -25,7 +25,7 @@ enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(),
 }
 
 enhancedbarsDen <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, 
-                              yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), density=NULL, angle=NULL, ...){
+            yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), density=NULL, angle=NULL, alpha=0.7,...){
   
   plot((1:length(meandf)),meandf, ylim=ylimit, 
        cex.axis=1.2, cex=1.2, xlim=c(0.5,length(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
@@ -36,7 +36,7 @@ enhancedbarsDen <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), y
   
   for(i in 1:length(meandf)){
     points(jitter(rep(i,nrow(dataframe[treat==levels(treat)[i],]))), 
-           jitter(resp[treat==levels(treat)[i]]), bg=alpha(colpal[i],alpha=0.7), pch=21)
+           jitter(resp[treat==levels(treat)[i]]), bg=alpha(colpal[i],alpha=alpha), pch=21)
   }
   
   for(i in 1:length(meandf)){
