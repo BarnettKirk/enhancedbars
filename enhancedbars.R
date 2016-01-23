@@ -1,8 +1,8 @@
 enhancedbarsAlpha <- function(dataframe,resp,treat,meandf,sedf,colpal=palette(), ylabel=NULL, maintitle=NULL,xlabel=NULL, 
-                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), alpha=0.7,...){
+                         yadj=-1.7,ylimit=range(resp[!is.na(resp) & is.finite(resp)]), alpha=0.7,yaxis="y"...){
   
   plot((1:length(meandf)),meandf, ylim=ylimit, 
-      cex.axis=1.2, cex=1.2, xlim=c(0.5,length(meandf)+0.5),type='n', ylab="",xaxt='n', xlab="",main=maintitle)
+      cex.axis=1.2, cex=1.2, xlim=c(0.5,length(meandf)+0.5),type='n', ylab="",xaxt='n', yaxt=yaxis, xlab="",main=maintitle)
 
   for(i in 1:length(meandf)){
     rect(i-0.3,0,i+0.3,meandf[i], col=alpha(colpal[i],alpha=alpha), ...)
